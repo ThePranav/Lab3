@@ -54,7 +54,7 @@ public class SimpleWebScraping {
     /**
      * It runs.
      *
-     * @param args
+     * @param args the argument
      */
     public static void main(final String[] args) {
         System.out.println(urlToString("http://erdani.com/tdpl/hamlet.txt"));
