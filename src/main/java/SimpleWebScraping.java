@@ -51,9 +51,14 @@ public class SimpleWebScraping {
         return count;
     }
 
-    public static void main(String[] args) {
+    /**
+     * It runs.
+     *
+     * @param args
+     */
+    public static void main(final String[] args) {
         System.out.println(urlToString("http://erdani.com/tdpl/hamlet.txt"));
         System.out.println(countWords(urlToString("http://erdani.com/tdpl/hamlet.txt")));
-        System.out.println(countOneWord("The Prince", "Prince"));
+        //System.out.println(countOneWord("The Prince", "Prince"));
     }
 }
