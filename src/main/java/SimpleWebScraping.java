@@ -34,19 +34,24 @@ public class SimpleWebScraping {
     public static int countOneWord(final String str, final String search) {
          int count = 0;
          int wordLength = 0;
-         String word = "";
-         for (int i = 0; i <= str.length() - 1; i++) {
-             int j = i;
+         String searchUpper = search.toUpperCase();
+         for (int i = 0; i < str.length(); i++) {
+             int j = 0;
              char k = str.charAt(i);
+             String word = "";
              while (k != ' ') {
                  j++;
                  wordLength++;
-                 k = str.charAt(j);
+                 k = str.charAt(i + j);
+                 word += k;
              }
-             word = str.substring(i, i + wordLength);
-             if (word.compareTo(search) == 0) {
-                count++;
+             if (str.length() - i - 1 > i + wordLength) {
+                 word = word.toUpperCase();
+                 if (word.compareTo(searchUpper) == 0) {
+                     count++;
+                 }
              }
+             wordLength = 0;
          }
         return count;
     }
@@ -57,8 +62,9 @@ public class SimpleWebScraping {
      * @param args the argument
      */
     public static void main(final String[] args) {
-        System.out.println(urlToString("http://erdani.com/tdpl/hamlet.txt"));
-        System.out.println(countWords(urlToString("http://erdani.com/tdpl/hamlet.txt")));
-        //System.out.println(countOneWord("The Prince", "Prince"));
+        String url = urlToString("http://erdani.com/tdpl/hamlet.txt");
+        System.out.println(url);
+        System.out.println(countWords(url));
+        System.out.println(countOneWord(url + " ", "Prince"));
     }
 }
